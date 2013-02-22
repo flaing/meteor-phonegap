@@ -29,6 +29,7 @@ cordova platform add android
 
 IP=$(python -c 'import socket; s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM); s.connect(("google.com", 80)); print s.getsockname()[0]')
 echo "Your IP is probably $IP, let's use this for the app for now"
+echo "Patching the Meteor code based on this http://blog.snowflax.com/meteor-on-mobile-device-using-phonegap/"
 echo 73a74 > stream_client_url.patch
 echo ">     url = \"http://$IP:3000/\"; // Hack to connect to a specific Meteor server" >> stream_client_url.patch
 echo 102a104 >> stream_client_url.patch
