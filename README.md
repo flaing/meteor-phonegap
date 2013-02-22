@@ -31,29 +31,14 @@ your connected Android device based on these two.
 More detail
 -----------
 
-
-Now you can
-
-    cordova create Baz
-    cd Baz
-    
-    
-This one might break, in which case you can try the following. Note
-that it might not work straight away, just google your errors and try
-e.g. 
-`/usr/local/lib/node_modules/cordova/lib/cordova-android/framework; ant jar`.
-
-    cordova platform add android
-    
-
-    cordova build  # build stuff
-    cordova compile android  # install the .apk on your android device
-    cordova serve android  # test stuff on your desktop by going to localhost:8000
-    
+`firstrun.sh` will create a simple Meteor example project, fetch it
+with `wget`.  Then it will set up a Cordova project, copy the wget
+stuff into this and patch it based on the IP of the machine that this
+stuff is running on.
 
 
-Other useful cli stuff
-----------------------
+Some useful cli stuff
+---------------------
 
     adb devices
     adb logcat
