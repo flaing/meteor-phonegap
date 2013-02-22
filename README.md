@@ -17,7 +17,7 @@ As it's mostly a waste of time, cpu cycles and disk space for folks who prefer s
 
 We presume you kinda know what `npm` is and you have it installed on your system. Now, make sure `node` is up-to-date (at least v0.8.20 around February 2013) and run the following:
 
-    npm install -g cordova
+    sudo npm install -g cordova
 
 You possibly want to `chown -R `yourself` /usr/local/lib/node_modules/cordova` 
 
