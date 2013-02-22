@@ -1,18 +1,36 @@
 meteor-phonegap
 ===============
 
-Now let's make it easy for everyone. As it's mostly a waste of time, cpu cycles and 
-disk space for folks who prefer simple editors like vim and Emacs, we don't want Eclipse.
+**Meteor** is awesome. **Phonegap** is cool. Now let's make it easy
+for everyone to use both.  We don't want Eclipse as it's mostly a
+waste of time, cpu cycles and disk space for folks who prefer simple
+editors like vim and Emacs.
 
-*First step* is to install the Android SDK and Phonegap itself.  Since I did this a long time
-ago and all is still good I'm not documenting this here now.
+We'll first focus on Android here, although it's probably not too hard
+to add support for other platforms as well.
 
-We presume you kinda know what `npm` is and you have it installed on your system. 
-Now, make sure `node` is up-to-date (at least v0.8.20 around February 2013) and run the following:
+**First step** is to install the Android SDK and Phonegap itself.
+Since I did this a long time ago and all is still good I'm not
+documenting this here now.
+
+I'm still not 100% sure about the relationship between Cordova and
+Phonegap but I came across a pretty cool cli tool. We presume you
+kinda know what `npm` is and you have it installed on your system.
+Now, make sure `node` is up-to-date (at least v0.8.20 around February
+2013) and run the following:
 
     sudo npm install -g cordova
 
 You possibly want to `chown -R `yourself` /usr/local/lib/node_modules/cordova` 
+
+Now you already try `scripts/firstrun.sh` which will build example
+apps for Meteor and Phonegap and will hopefully install an `.apk` to
+your connected Android device based on these two.
+
+
+More detail
+-----------
+
 
 Now you can
 
@@ -20,12 +38,13 @@ Now you can
     cd Baz
     
     
-This one might break, in which case you can try the following. Note that it might not work straight away, just google your errors and try e.g. 
+This one might break, in which case you can try the following. Note
+that it might not work straight away, just google your errors and try
+e.g. 
 `/usr/local/lib/node_modules/cordova/lib/cordova-android/framework; ant jar`.
 
     cordova platform add android
     
-You can probably add some other platforms as well but we'll first focus on android in this project. Now you can...
 
     cordova build  # build stuff
     cordova compile android  # install the .apk on your android device
