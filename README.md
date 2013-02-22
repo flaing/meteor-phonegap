@@ -19,12 +19,21 @@ We presume you kinda know what `npm` is and you have it installed on your system
 
     npm install -g cordova
 
+You possibly want to `chown -R `yourself` /usr/local/lib/node_modules/cordova` 
 
 Now you can
 
     cordova create Baz
     cd Baz
+    
+    
+This one might break, in which case you can try the following. Note that it might not work straight away, just google your errors and try e.g. 
+`/usr/local/lib/node_modules/cordova/lib/cordova-android/framework; ant jar`.
+
     cordova platform add android
+    
+You can probably add some other platforms as well but we'll first focus on android in this project. Now you can...
+
     cordova build
     cordova serve android
 
