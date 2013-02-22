@@ -1,9 +1,6 @@
 meteor-phonegap
 ===============
 
-Can Meteor be used with PhoneGap?
-http://stackoverflow.com/questions/10322723/can-meteor-be-used-with-phonegap
-
 Now let's make it easy for everyone. As it's mostly a waste of time, cpu cycles and 
 disk space for folks who prefer simple editors like vim and Emacs, we don't want Eclipse.
 
@@ -44,5 +41,12 @@ Other useful cli stuff
 
 
 Other resources
+---------------
 
-http://phonegap.com/2010/03/26/android-without-eclipse/
+* http://stackoverflow.com/questions/10322723/can-meteor-be-used-with-phonegap
+* http://phonegap.com/2010/03/26/android-without-eclipse/
+* http://blog.snowflax.com/meteor-on-mobile-device-using-phonegap/
+
+
+
+
