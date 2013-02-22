@@ -34,8 +34,11 @@ This one might break, in which case you can try the following. Note that it migh
     
 You can probably add some other platforms as well but we'll first focus on android in this project. Now you can...
 
-    cordova build
-    cordova serve android
+    cordova build  # build stuff
+    cordova serve android  # test stuff on your desktop by going to localhost:8000
+    cordova compile android  # install the .apk on your android device
+
+
 
 Other useful cli stuff
 ----------------------
