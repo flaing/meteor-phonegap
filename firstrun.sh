@@ -34,7 +34,9 @@ echo 73a74 > stream_client_url.patch
 echo ">     url = \"http://$IP:3000/\"; // Hack to connect to a specific Meteor server" >> stream_client_url.patch
 echo 102a104 >> stream_client_url.patch
 echo ">     url = \"http://$IP:3000/\"; // Hack to connect to a specific Meteor server" >> stream_client_url.patch
- 
+
+sed -i.bak s/HelloCordova/HelloCordovaMeteor/g www/config.xml
+
 cat stream_client_url.patch
 
 patch -p0 $(find www|grep stream_client) < stream_client_url.patch
