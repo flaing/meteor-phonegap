@@ -46,6 +46,7 @@ stuff into this and patch it based on the IP of the machine that this
 stuff is running on.
 
 `meteor2cordova.sh` will simply `wget` a Meteor project and apply some hackery on that.
+Try `meteor2cordova.sh docs.meteor.com` for fun, and well, it might actually be useful.
 
 
 Some useful cli stuff
