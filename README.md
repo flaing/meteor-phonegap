@@ -1,20 +1,17 @@
 meteor-phonegap
 ===============
 
-**Meteor** is awesome. **Phonegap** is cool. Now let's make it easy
-for everyone to use both.  We don't want Eclipse as it's mostly a
-waste of time, cpu cycles and disk space for folks who prefer simple
-editors like vim and Emacs.
+**[Meteor](http://meteor.com/)** is awesome. **[Phonegap](http://phonegap.com/)** is cool. Now let's make it easy
+for everyone to use both. At this point `meteor-phonegap` is a quick way to turn a Meteor project into an Android Phonegap app.
 
-We'll first focus on Android here, although it's probably not too hard
-to add support for other platforms as well.
+Later on we'll support more platforms and possibly plug into build.phonegap.com.
 
 **First step** is to install the Android SDK and Phonegap itself.
 Since I did this a long time ago and all is still good I'm not
 documenting this here now.
 
 I'm still not 100% sure about the relationship between Cordova and
-Phonegap but I came across a pretty cool cli tool. We presume you
+Phonegap but the `cordova` cli tool is extremely useful. We presume you
 kinda know what `npm` is and you have it installed on your system.
 Now, make sure `node` is up-to-date (at least v0.8.20 around February
 2013) and run the following:
@@ -47,6 +44,10 @@ stuff is running on.
 
 `meteor2cordova.sh` will simply `wget` a Meteor project and apply some hackery on that.
 Try `meteor2cordova.sh docs.meteor.com` for fun, and well, it might actually be useful.
+
+
+There's tons of stuff to do and improve. Your patches, bug reports and feature requests are very welcome on github.
+
 
 
 Some useful cli stuff
