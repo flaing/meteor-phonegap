@@ -18,17 +18,10 @@ cp -a ../$URL/* www/
 
 cordova platform add android
 
-echo "Patching the Meteor code based on this http://blog.snowflax.com/meteor-on-mobile-device-using-phonegap/"
-echo 73a74 > stream_client_url.patch
-echo ">     url = \"http://$URL/\"; // Hack to connect to a specific Meteor server" >> stream_client_url.patch
-echo 102a104 >> stream_client_url.patch
-echo ">     url = \"http://$URL/\"; // Hack to connect to a specific Meteor server" >> stream_client_url.patch
+sed -i.bak 's#</head>#<script type="text/javascript">Meteor._Stream._toSockjsUrl = function(e) { return "http://$URL/sockjs" }</script></head>#g' www/index.html
 
 sed -i.bak s/HelloCordova/$URL/g www/config.xml
 
-cat stream_client_url.patch
-
-patch -p0 $(find www|grep stream_client) < stream_client_url.patch
 echo 'Now building the .apk'
 cordova build
 cordova compile android
