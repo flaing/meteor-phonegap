@@ -10,12 +10,15 @@ echo Make sure an unminified Meteor app is running on $URL
 echo "(i.e. on localhost or through meteor deploy --debug)"
 rm -rf cordovaapp $URL
 
+mkdir -p downloads
+cd downloads
 wget -e robots=off -E -k -K -p $URL
+cd ..
 
 cordova create cordovaapp
 cd cordovaapp
 mv www/index.html www/index-cordova-orig.html
-cp -a ../$URL/* www/
+cp -a ../downloads/$URL/* www/
 
 cordova platform add android
 
