@@ -11,7 +11,7 @@ echo "(i.e. on localhost or through meteor deploy --debug)"
 rm -rf cordovaapp $URL
 
 mkdir -p downloads
-cd downloads
+cd downloads  # There's probably a wget option for this, but what the hack
 wget -e robots=off -E -k -K -p $URL
 cd ..
 
