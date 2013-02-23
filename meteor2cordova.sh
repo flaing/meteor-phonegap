@@ -9,7 +9,8 @@ echo Turning $URL into a Phonegap app
 echo Make sure an unminified Meteor app is running on $URL
 echo "(i.e. on localhost or through meteor deploy --debug)"
 rm -rf cordovaapp $URL
-wget -e robots=off -E -H -k -K -p $URL
+
+wget -e robots=off -E -k -K -p $URL
 
 cordova create cordovaapp
 cd cordovaapp
