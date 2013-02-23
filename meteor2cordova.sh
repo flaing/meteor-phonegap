@@ -20,12 +20,13 @@ cd cordovaapp
 mv www/index.html www/index-cordova-orig.html
 cp -a ../downloads/$URL/* www/
 
+cordova platform add android
+
 sed -i.bak 's#</head>#<script type="text/javascript">Meteor._Stream._toSockjsUrl = function(e) { return "http://$URL/sockjs" }</script></head>#g' www/index.html
 
 sed -i.bak s/HelloCordova/$URL/g www/config.xml
 
 echo 'Now building the .apk'
-cordova platform add android
 cordova build
 cordova compile android
 
