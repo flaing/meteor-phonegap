@@ -23,18 +23,29 @@ Now, make sure `node` is up-to-date (at least v0.8.20 around February
 
 You possibly want to `chown -R `yourself` /usr/local/lib/node_modules/cordova` 
 
-Now you already try `scripts/firstrun.sh` which will build example
-apps for Meteor and Phonegap and will hopefully install an `.apk` to
-your connected Android device based on these two.
+
+setupexample.sh
+---------------
+
+`setupexample.sh` will install the Meteor Leaderboard example and turn it into an app.
+
+
+meteor2cordova.sh
+-----------------
+
+`meteor2cordova.sh` will turn *any* Meteor app that is not minified into a Phonegap app.
+So use `meteor deploy --debug` for now.
 
 
 More detail
 -----------
 
-`firstrun.sh` will create a simple Meteor example project, fetch it
+`setupexample.sh` will create a simple Meteor example project, fetch it
 with `wget`.  Then it will set up a Cordova project, copy the wget
 stuff into this and patch it based on the IP of the machine that this
 stuff is running on.
+
+`meteor2cordova.sh` will simply `wget` a Meteor project and apply some hackery on that.
 
 
 Some useful cli stuff
