@@ -6,9 +6,9 @@ for everyone to use both. At this point `meteor-phonegap` is a quick way to turn
 
 Later on we'll support more platforms and possibly plug into build.phonegap.com.
 
-**First step** is to install the Android SDK and Phonegap itself.
+**First step** is to install the Android SDK.
 Since I did this a long time ago and all is still good I'm not
-documenting this here now.
+documenting this here now. jfgit.
 
 I'm still not 100% sure about the relationship between Cordova and
 Phonegap but the `cordova` cli tool is extremely useful. We presume you
