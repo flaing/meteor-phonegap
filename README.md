@@ -24,14 +24,13 @@ You possibly want to `chown -R `yourself` /usr/local/lib/node_modules/cordova`
 setupexample.sh
 ---------------
 
-`setupexample.sh` will install the Meteor Leaderboard example and turn it into an app.
+`setupexample.sh` installs the Meteor Leaderboard example and turns it into an app.
 
 
 meteor2cordova.sh
 -----------------
 
-`meteor2cordova.sh` will turn *any* Meteor app that is not minified into a Phonegap app.
-So use `meteor deploy --debug` for now.
+`meteor2cordova.sh` turns *any* Meteor app into a Phonegap app.
 
 
 More detail
