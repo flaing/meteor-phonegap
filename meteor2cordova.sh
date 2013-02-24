@@ -1,14 +1,19 @@
 #!/bin/bash
 
-set +o verbose
+# Turn Meteor app into Phonegap app.
+#
+# (c) 2013 Kasper Souren
+# See LICENSE
+#
+#
 
-IP=$(python -c 'import socket; s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM); s.connect(("google.com", 80)); print s.getsockname()[0]')
+# Fetch IP address that is probably accessible on local network
+IP=$(python -c 'import socket; s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM); s.connect(("www.eff.org", 80)); print s.getsockname()[0]')
 URL=${1-$IP:3000}
 
-echo Turning $URL into a Phonegap app
-echo Make sure an unminified Meteor app is running on $URL
-echo "(i.e. on localhost or through meteor deploy --debug)"
-rm -rf cordovaapp $URL
+echo "Let's turn $URL into a Phonegap app"
+
+rm -rf cordovaapp downloads/$URL
 
 mkdir -p downloads
 cd downloads  # There's probably a wget option for this, but what the hack
@@ -20,15 +25,22 @@ cd cordovaapp
 mv www/index.html www/index-cordova-orig.html
 cp -a ../downloads/$URL/* www/
 
-cordova platform add android
 
 sed -i.bak 's#</head>#<script type="text/javascript">Meteor._Stream._toSockjsUrl = function(e) { return "http://$URL/sockjs" }</script></head>#g' www/index.html
 
 sed -i.bak s/HelloCordova/$URL/g www/config.xml
+NAME=$(echo $URL|sed s/\\.//g)
+echo "Widget id: $NAME"
+# This time no backup
+sed -i.bak s/hellocordova/$NAME/ www/config.xml
+
+cordova platform add android
 
 echo 'Now building the .apk'
 cordova build
 cordova compile android
 
-# somehow I can't manage cordova to install stuff yet
-adb install -r $(find .|grep apk$|grep -v unaligned)
+# Somehow I can't get cordova to install stuff
+APK=$(find .|grep apk$|grep -v unaligned)
+echo -e "\nNow trying to install $APK"
+adb install -r $APK
