@@ -49,6 +49,14 @@ There's tons of stuff to do and improve. Your patches, bug reports and feature r
 
 
 
+
+Keysigning
+----------
+
+    keytool -sigalg MD5withRSA -keyalg RSA -keysize 1024 -genkey -v -alias yourAlias -keystore release-key.keystore
+
+
+
 Some useful cli stuff
 ---------------------
 
