@@ -4,7 +4,15 @@ meteor-phonegap
 **[Meteor](http://meteor.com/)** is awesome. **[Phonegap](http://phonegap.com/)** is cool. Now let's make it easy
 for everyone to use both. At this point `meteor-phonegap` is a quick way to turn a Meteor project into an Android Phonegap app.
 
-Later on we'll support more platforms and possibly plug into build.phonegap.com.
+
+Some example Android apps
+-------------------------
+* [Meteor documentation](https://play.google.com/store/apps/details?id=io.cordova.cordovadocsmeteorcom)
+* [Radio Meteor](https://play.google.com/store/apps/details?id=io.cordova.cordovaradiometeorcom), internet radio player for Somafm and Radio Paradise
+
+
+The docs
+--------
 
 **First step** is to install the Android SDK.
 Since I did this a long time ago and all is still good I'm not
