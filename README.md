@@ -61,7 +61,7 @@ There's tons of stuff to do and improve. Your patches, bug reports and feature r
 Keysigning
 ----------
 
-*todo: more grokkable*
+*This is now also in `signapk.sh`*
 
 Generate a key in the release-key.keystore file
 
