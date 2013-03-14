@@ -61,18 +61,22 @@ There's tons of stuff to do and improve. Your patches, bug reports and feature r
 Keysigning
 ----------
 
-todo: more grokkable
+*todo: more grokkable*
 
 Generate a key in the release-key.keystore file
+
     keytool -validity 9125 -sigalg MD5withRSA -keyalg RSA -keysize 1024 -genkey -v -alias YOURALIAS -keystore release-key.keystore
 
 Create a release apk:
+
     ant release
 
 Sign your apk:
+
     jarsigner -verbose -sigalg MD5withRSA -digestalg SHA1 -keystore release-key.keystore YOURAPPNAME-release-unsigned.apk YOURALIAS
 
 zipalign it:
+
     Android-SDK/tools/zipalign YOURAPPNAME-release-unsigned.apk YOURAPPNAME-ready.apk
 
 If you successfully jumped through these hoops you're ready for uploading to play.google.com
