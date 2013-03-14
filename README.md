@@ -4,7 +4,15 @@ meteor-phonegap
 **[Meteor](http://meteor.com/)** is awesome. **[Phonegap](http://phonegap.com/)** is cool. Now let's make it easy
 for everyone to use both. At this point `meteor-phonegap` is a quick way to turn a Meteor project into an Android Phonegap app.
 
-Later on we'll support more platforms and possibly plug into build.phonegap.com.
+
+Some example Android apps
+-------------------------
+* [Meteor documentation](https://play.google.com/store/apps/details?id=io.cordova.cordovadocsmeteorcom)
+* [Radio Meteor](https://play.google.com/store/apps/details?id=io.cordova.cordovaradiometeorcom), internet radio player for Somafm and Radio Paradise
+
+
+The docs
+--------
 
 **First step** is to install the Android SDK.
 Since I did this a long time ago and all is still good I'm not
@@ -48,6 +56,30 @@ Try `meteor2cordova.sh docs.meteor.com` for fun, and well, it might actually be 
 There's tons of stuff to do and improve. Your patches, bug reports and feature requests are very welcome on github.
 
 
+
+
+Keysigning
+----------
+
+*todo: more grokkable*
+
+Generate a key in the release-key.keystore file
+
+    keytool -validity 9125 -sigalg MD5withRSA -keyalg RSA -keysize 1024 -genkey -v -alias YOURALIAS -keystore release-key.keystore
+
+Create a release apk:
+
+    ant release
+
+Sign your apk:
+
+    jarsigner -verbose -sigalg MD5withRSA -digestalg SHA1 -keystore release-key.keystore YOURAPPNAME-release-unsigned.apk YOURALIAS
+
+zipalign it:
+
+    Android-SDK/tools/zipalign YOURAPPNAME-release-unsigned.apk YOURAPPNAME-ready.apk
+
+If you successfully jumped through these hoops you're ready for uploading to play.google.com
 
 Some useful cli stuff
 ---------------------
