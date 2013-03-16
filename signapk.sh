@@ -13,4 +13,5 @@ echo Signing $UNSIGNED
 
 jarsigner -verbose -sigalg MD5withRSA -digestalg SHA1 -keystore ~/release-key.keystore $UNSIGNED $YOURALIAS
 
+rm ready.apk
 /opt/Android-SDK/tools/zipalign 4 $UNSIGNED ready.apk
