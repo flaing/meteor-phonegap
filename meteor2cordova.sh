@@ -29,7 +29,7 @@ cp -a ../downloads/$URL/* www/
 sed -i.bak 's#</head>#<script type="text/javascript">Meteor._Stream._toSockjsUrl = function(e) { return "http://$URL/sockjs" }</script></head>#g' www/index.html
 
 sed -i.bak s/HelloCordova/$URL/g www/config.xml
-NAME=cordova$(echo $URL|sed s/\[\\.\:\]//g)   # Remove dots
+NAME=$(echo $URL|sed s/\[\\.\:\]/\./g)   # Remove dots
 echo "Widget id: $NAME"
 # This time no backup
 sed -i.bak s/hellocordova/$NAME/ www/config.xml
