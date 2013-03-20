@@ -8,7 +8,7 @@ for everyone to use both. At this point `meteor-phonegap` is a quick way to turn
 Some example Android apps
 -------------------------
 * [Meteor documentation](https://play.google.com/store/apps/details?id=io.cordova.cordovadocsmeteorcom)
-* [Radio Meteor](https://play.google.com/store/apps/details?id=io.cordova.cordovaradiometeorcom), internet radio player for Somafm and Radio Paradise
+* [Radio Meteor](https://play.google.com/store/apps/details?id=io.cordova.radio.meteor.com), internet radio player for Somafm and Radio Paradise
 
 
 The docs
