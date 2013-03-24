@@ -20,6 +20,11 @@ echo -e "Downloading $URL into $DLDIR\n"
 mkdir -p $DLDIR
 wget -nv --directory-prefix=$DLDIR -e robots=off -E -k -K -p $URL
 
+if [ ! -d "$DLDIR/$URL" ]; then
+    echo "Provide URL of the Meteor you want to convert or run a Meteor server locally"
+    exit
+fi
+
 cordova create cordovaapp
 cd cordovaapp
 cp -a $DLDIR/$URL/* www/
@@ -58,7 +63,7 @@ fi
 
 
 
-echo 'Now building the .apk'
+echo 'Now building the APK'
 cordova build
 cordova compile android
 
