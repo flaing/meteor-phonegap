@@ -2,3 +2,4 @@ cordovaapp
 meteorapp
 *.patch
 downloads/
+*phonegap-build
