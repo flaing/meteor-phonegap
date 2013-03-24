@@ -25,6 +25,7 @@ if [ ! -d "$DLDIR/$URL" ]; then
     exit
 fi
 
+echo 'Creating cordovaapp/' 
 cordova create cordovaapp
 cd cordovaapp
 cp -a $DLDIR/$URL/* www/
