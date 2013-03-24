@@ -19,8 +19,8 @@ documenting this here now. jfgit.
 Make sure Android-SDK/tools is in your PATH. (And possibly more.)
 
 I'm still not 100% sure about the relationship between Cordova and
-Phonegap but the `cordova` cli tool is extremely useful. We presume you
-kinda know what `npm` is and you have it installed on your system.
+Phonegap but the `cordova` cli tool is extremely useful. We presume
+you kinda know what `npm` is and you have it installed on your system.
 Now, make sure `node` is up-to-date (at least v0.8.20 around February
 2013) and run the following:
 
@@ -40,12 +40,16 @@ Try running
 
     meteor2cordova.sh docs.meteor.com
 
+or run without an argument to convert the Meteor app running on your
+local machine into an app.
+
 
 
 config.xml and AndroidManifest.xml
 ----------------------------------
 
-You can put `config.xml` and `AndroidManifest.xml` in your Meteor project's `public/cordova`
+You can put `config.xml` and `AndroidManifest.xml` in your Meteor
+project's `public/cordova`
 
 `meteor2cordova.sh` will check for these files and use them.
 

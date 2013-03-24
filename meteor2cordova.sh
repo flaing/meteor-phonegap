@@ -14,26 +14,25 @@ DLDIR=/tmp/meteor-phonegap-downloads
 IP=$(python -c 'import socket; s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM); s.connect(("www.eff.org", 80)); print s.getsockname()[0]')
 URL=${1-$IP:3000}
 
-echo "Let's turn $URL into a Phonegap app"
-
 rm -rf cordovaapp $DLDIR
 
+echo -e "Downloading $URL into $DLDIR\n"
 mkdir -p $DLDIR
-wget --directory-prefix=$DLDIR -e robots=off -E -k -K -p $URL
+wget -nv --directory-prefix=$DLDIR -e robots=off -E -k -K -p $URL
 
 cordova create cordovaapp
 cd cordovaapp
 cp -a $DLDIR/$URL/* www/
 
 
-echo "Applying the main hack: some JS that overrides _toSockjsUrl"
+echo -e "\nApplying the main hack: some JS that overrides _toSockjsUrl"
 sed -i.bak 's#</head>#<script type="text/javascript">Meteor._Stream._toSockjsUrl = function(e) { return "http://$URL/sockjs" }</script></head>#g' www/index.html
 
 
-echo 'checking for public/cordvova/config.xml'
-wget --directory-prefix=$DLDIR -e robots=off $URL/cordova/config.xml
-echo 'checking for public/cordvova/AndroidManifest.xml'
-wget --directory-prefix=$DLDIR -e robots=off $URL/cordova/AndroidManifest.xml
+echo -e "\nChecking for public/cordvova/config.xml"
+wget -nv --directory-prefix=$DLDIR -e robots=off $URL/cordova/config.xml
+echo -e "checking for public/cordvova/AndroidManifest.xml"
+wget -nv --directory-prefix=$DLDIR -e robots=off $URL/cordova/AndroidManifest.xml
 
 
 
@@ -48,7 +47,7 @@ else
     sed -i.bak s/HelloCordova/$URL/g www/config.xml
 fi
 
-echo 'Now building android platform'
+echo -e "\nNow building android platform"
 cordova platform add android
 
 
