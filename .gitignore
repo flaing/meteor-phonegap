@@ -3,3 +3,4 @@ meteorapp
 *.patch
 downloads/
 *phonegap-build
+screenshots/
