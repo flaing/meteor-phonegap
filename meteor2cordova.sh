@@ -16,9 +16,7 @@ echo "Let's turn $URL into a Phonegap app"
 rm -rf cordovaapp downloads/$URL
 
 mkdir -p downloads
-cd downloads  # There's probably a wget option for this, but what the hack
-wget -e robots=off -E -k -K -p $URL
-cd ..
+wget --directory-prefix=downloads -e robots=off -E -k -K -p $URL
 
 cordova create cordovaapp
 cd cordovaapp
