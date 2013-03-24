@@ -1,6 +1,5 @@
-cordovaapp
-meteorapp
-*.patch
-downloads/
-*phonegap-build
+cordovaapp/
 screenshots/
+*.patch
+*.apk
+*phonegap-build

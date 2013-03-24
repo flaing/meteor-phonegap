@@ -1,4 +1,3 @@
-cd $(dirname $0)
 cd cordovaapp/platforms/android
 
 echo We need your keystore alias
@@ -14,8 +13,9 @@ UNSIGNED=$(find .|grep apk$|grep release-unsigned)
 echo signing $UNSIGNED
 jarsigner -verbose -sigalg MD5withRSA -digestalg SHA1 -keystore ~/release-key.keystore $UNSIGNED $YOURALIAS
 
-rm ready.apk
 echo 'zipalign your apk'
 zipalign 4 $UNSIGNED ready.apk
 
 echo 'Done. Check ready.apk'
+
+mv ready.apk ../../..
