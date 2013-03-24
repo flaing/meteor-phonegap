@@ -35,25 +35,19 @@ meteor2cordova.sh
 
 `meteor2cordova.sh` turns *any* Meteor app into a Phonegap app.
 
-Try running 
+
+Try running
 
     meteor2cordova.sh docs.meteor.com
-
-
-setupexample.sh
----------------
-
-`setupexample.sh` installs the Meteor Leaderboard example and turns it into an app.
-
 
 
 
 config.xml and AndroidManifest.xml
 ----------------------------------
 
-You can put `config.xml` and `AndroidManifest.xml` in `public/cordova` of your Meteor project.
-`meteor2cordova.sh` will check for these files and use them.
+You can put `config.xml` and `AndroidManifest.xml` in your Meteor project's `public/cordova`
 
+`meteor2cordova.sh` will check for these files and use them.
 
 
 More detail
@@ -83,7 +77,7 @@ You first need to generate a key, e.g. like this:
     keytool -validity 9125 -sigalg MD5withRSA -keyalg RSA -keysize 1024 -genkey -v -alias YOURALIAS -keystore release-key.keystore
 
 
-The rest of the steps can be handled by `signapk.sh`.
+The rest of the steps can be handled by `signapk.sh`, which takes YOURALIAS as an argument.
 
 
 After signin you're ready for uploading to
@@ -97,4 +91,3 @@ Some example Android apps
 * [Meteor documentation](https://play.google.com/store/apps/details?id=io.cordova.cordovadocsmeteorcom)
 * [Radio Meteor](https://play.google.com/store/apps/details?id=io.cordova.radio.meteor.com), internet radio player for Somafm and Radio Paradise
 * [Hitchwiki](https://play.google.com/store/apps/details?id=io.cordova.cordovahitchwikimeteorcom), offline version of Hitchwiki, based on [mediawikixml2meteor2phonegap](https://github.com/guaka/mediawikixml2meteor2phonegap)
-The docs
