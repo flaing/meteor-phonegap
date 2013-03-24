@@ -18,4 +18,6 @@ zipalign 4 $UNSIGNED ready.apk
 
 echo 'Done. Check ready.apk'
 
+aapt dump badging ready.apk
 mv ready.apk ../../..
+

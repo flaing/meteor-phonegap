@@ -68,17 +68,19 @@ if grep -Fq "<?xml version" $DLDIR/AndroidManifest.xml; then
 else
     if [ -e ../AndroidManifest.xml ]; then
         echo 'Using local AndroidManifest.xml'
-        cp ../AndroidManifest.xml www/
+        cp ../AndroidManifest.xml platforms/android/
     fi
 fi
 
 
 
-echo 'Now building the APK'
+echo 'cordova build'
 cordova build
+
+echo 'cordova compile android'
 cordova compile android
 
 
 APK=$(find .|grep apk$|grep -v unaligned)
-echo -e "\nNow trying to install $APK"
+echo -e "\nTrying to install $APK on your phone"
 adb install -r $APK
