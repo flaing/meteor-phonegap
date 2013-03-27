@@ -7,6 +7,9 @@ it easy for everyone to use both. At this point `meteor-phonegap` is a
 quick way to turn a Meteor project into an Android Phonegap app that
 you can upload to the Google Play Developer Console.
 
+Any help with adding more platforms and improving Android is welcome: 
+* [AndroidManifest.xml: CompontentInfo what how?](https://github.com/guaka/meteor-phonegap/issues/25)
+* [Add more platforms](https://github.com/guaka/meteor-phonegap/issues/26)
 
 
 Getting started
