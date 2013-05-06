@@ -1,0 +1,25 @@
+{
+  "name": "meteor-phonegap",
+  "preferGlobal": true,
+  "version": "0.1.0",
+  "author": "guaka <kasper.souren@gmail.com>",
+  "description": "turn Meteor apps into a Cordova/Phonegap app",
+  "contributors": [ 
+    {
+      "name": "Kasper Souren",
+      "email": "kasper.souren@gmail.com"
+    }                  
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/guaka/meteor-phonegap.git"
+  },
+  "keywords": [
+    "meteor",
+    "phonegap"
+  ],
+  "dependencies" : {
+    "cordova" : "*"
+  },
+  "license": "MIT"
+}
