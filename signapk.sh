@@ -19,11 +19,13 @@ UNSIGNED=$(find .|grep apk$|grep release-unsigned)
 echo signing $2
 echo $M2C_KEY_PASS | jarsigner -verbose -sigalg MD5withRSA -digestalg SHA1 -keystore $M2C_KEY_CERTFILE $UNSIGNED $YOURALIAS
 
+
+READY=aligned-signed.apk
 echo 'zipalign your apk'
-zipalign 4 $UNSIGNED ready.apk
+zipalign 4 $UNSIGNED $READY
 
-echo 'Done. Check ready.apk'
+echo "Done. Check $READY"
 
-aapt dump badging ready.apk
-mv ready.apk ../../..
+aapt dump badging $READY
+mv $READY ../../..
 
