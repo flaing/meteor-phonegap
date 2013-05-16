@@ -36,16 +36,16 @@ sed -i.bak 's#</head>#<script type="text/javascript">Meteor._Stream._toSockjsUrl
 
 
 pwd
-if [ -e ../config.xml ]; then
-    echo 'Using local config.xml'
-    cp ../config.xml www/
-else
-    echo "Didn't find your config.xml, will hack the default one for you, you probably want to copy this to public/cordova/ of your Meteor project"
-    NAME=$(echo $URL|sed s/\[\\.\:\]/\./g)
-    echo "Widget id: $NAME"
-    sed -i.bak s/hellocordova/$NAME/ www/config.xml
-    sed -i.bak s/HelloCordova/$URL/g www/config.xml
-fi
+#if [ -e ../config.xml ]; then
+#    echo 'Using local config.xml'
+#    cp ../config.xml www/
+#else
+#    echo "Didn't find your config.xml, will hack the default one for you, you probably want to copy this to public/cordova/ of your Meteor project"
+NAME=$(echo $URL|sed s/\[\\.\:\]/\./g)
+echo "Widget id: $NAME"
+sed -i.bak s/hellocordova/$NAME/ www/config.xml
+sed -i.bak s/HelloCordova/$URL/g www/config.xml
+# fi
 
 
 
@@ -53,14 +53,16 @@ echo -e "\nNow building android platform"
 cordova platform add android
 
 
-if [ -e ../build.xml ]; then
-    echo 'Using local build.xml'
-    cp ../build.xml platforms/android/
-fi
-
 if [ -e ../AndroidManifest.xml ]; then
     echo 'Using local AndroidManifest.xml'
     cp ../AndroidManifest.xml platforms/android/
+else
+    if [ -z $VERSIONNAME ]; then
+        if [ -z $VERSIONCODE ]; then
+            sed -i.bak s/versionCode=\"1\"\ android:versionName=\"1.0\"/versionCode=\"$VERSIONCODE\"\ android:versionName=\"$VERSIONNAME\"/ platforms/android/AndroidManifest.xml
+        # also do something like: grep -v "CAMERA\|VIBRATE" AndroidManifest.xml
+        fi
+    fi
 fi
 
 
