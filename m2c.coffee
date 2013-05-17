@@ -19,30 +19,56 @@ console.log 'This is almost a CoffeeScript version of meteor2cordova.sh'
 console.log 'parameters: ', process.argv
 
 url = process.argv[2]
+appname = classname = 'testing'
 
 console.log "Let's turn #{url} into a Phonegap app"
 
-fs.mkdir dldir, ->
-  execSync 'rm -rf cordovaapp ' + dldir
+
+
+
+
+
+
+
+initialize = ->
+  fs.mkdir dldir, ->
+    execSync 'rm -rf cordovaapp ' + dldir
+
+download = (url, dldir, done) ->
   exec "wget -nv --directory-prefix=#{dldir} -e robots=off -E -k -K -p #{url}", (e, o, err) ->
     puts e, o, err
+    done()
 
-    execSync 'mkdir -p cordovaapp'
+cordovaCreate = (done) ->
     exec "cordova create cordovaapp", (e, o, err) ->
       puts e, o, err
-
       process.chdir 'cordovaapp'
+      done()
 
-      execSync "cp -a #{dldir}/#{url}/* www/"
+copyApp = ->
+  execSync "cp -a #{dldir}/#{url}/* www/"
 
-      console.log "\nApplying the main hack: some JS that overrides _toSockjsUrl"
-      exec 'sed -i.bak \'s#</head>#<script type="text/javascript">Meteor._Stream._toSockjsUrl = function(e) { return "http://$URL/sockjs" }</script></head>#g\' www/index.html', ->
-        puts
 
+fixConfigXml = ->
         fs.readFile 'www/config.xml', (err, data) ->
-          console.log data.toString()
-          #sed -i.bak s/hellocordova/$NAME/ www/config.xml
-          #sed -i.bak s/HelloCordova/$URL/g www/config.xml
+          confxml = data.toString()
+          confxml = confxml.replace 'hellocordova', classname
+          confxml = confxml.replace 'HelloCordova', appname
+          fs.writeFile 'www/config.xml', confxml
+
+mainHack = ->
+  console.log "\nApplying the main hack: some JS that overrides _toSockjsUrl"
+  exec 'sed -i.bak \'s#</head>#<script type="text/javascript">Meteor._Stream._toSockjsUrl = function(e) { return "http://$URL/sockjs" }</script></head>#g\' www/index.html', (e, o, err) ->
+    puts e, o, err
 
 
+main = ->
+  initialize()
+  download url, dldir, ->
+    cordovaCreate ->
+      copyApp()
+      mainHack()
+      fixConfigXml()
 
+
+main()
