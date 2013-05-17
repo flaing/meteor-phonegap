@@ -22,30 +22,29 @@ exports.mainHack = (done) ->
     done()
 
 
+processFile = (filename, process, done) ->
+  fs.readFile filename, (err, data) ->
+    fs.writeFile filename, (process data.toString()), ->
+      done()
+
+
 exports.fixConfigXml = (classname, appname, done) ->
-  filename = 'www/config.xml'
-  fs.readFile filename, (err, data) ->
-    xml = data.toString()
-    xml = xml.replace 'hellocordova', classname
-    xml = xml.replace 'HelloCordova', appname
-    fs.writeFile filename, xml
-    done()
+  processFile 'www/config.xml', (string) ->
+    (string.replace 'hellocordova', classname).replace 'HelloCordova', appname
+  , done
 
 
-exports.fixAndroidManifestXml = (versioncode, versionname, done) ->
-  filename = 'platforms/android/AndroidManifest.xml'
-  fs.readFile filename, (err, data) ->
-    xml = data.toString()
-    xml = xml.replace 'versionCode="1"', "versionCode=\"#{versioncode}\""
-    xml = xml.replace 'android:versionName="1.0"', "android:versionName=\"#{versionname}\""
+exports.fixAndroidManifestXml = (versioncode, versionname, rePermissions, done) ->
+  processFile 'platforms/android/AndroidManifest.xml', (string) ->
+    string = string.replace 'versionCode="1"', "versionCode=\"#{versioncode}\""
+    string = string.replace 'android:versionName="1.0"', "android:versionName=\"#{versionname}\""
 
-    console.log xml
-    _.map xml.split("\n"), (l) ->
-      console.log l
-    # also do something like: grep -v "CAMERA\|VIBRATE" AndroidManifest.xml
-    # xml = xml.
-    fs.writeFile filename, xml
-    done()
+    lines = _.map string.split("\n"), (l) ->
+      if l.indexOf('uses-permission') > -1
+        l if rePermissions and l.match rePermissions
+      else
+        l
+    lines = _.filter lines, (l) -> l?.length > 0
+    lines.join "\n"
+  , done
 
-
-# exports.fixAndroidManifestXml '1', '1', ->

@@ -67,7 +67,7 @@ main = ->
       processors.mainHack ->
         processors.fixConfigXml classname, appname, ->
           execPuts 'cordova platform add android', ->
-            processors.fixAndroidManifestXml versioncode, versionname, ->
+            processors.fixAndroidManifestXml versioncode, versionname, '(NOTHING)', ->
               execPuts 'cordova build', ->
                 execPuts 'cordova compile android', ->
 
