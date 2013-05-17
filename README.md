@@ -53,13 +53,14 @@ local machine into an app.
 
 
 
-config.xml and AndroidManifest.xml
-----------------------------------
 
-You can put `config.xml` and `AndroidManifest.xml` in your Meteor
-project's `public/cordova`
 
-`meteor2cordova.sh` will check for these files and use them.
+m2c.coffee
+----------
+
+`m2c.coffee` is a rewrite in coffeescript.
+
+   ./m2c.coffee docs.meteor.com --classname docs.meteor.com --appname "Meteorjs documentation" --versioncode 5 --versionname 0.6.3.1
 
 
 More detail
