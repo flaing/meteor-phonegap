@@ -19,8 +19,9 @@
     "phonegap"
   ],
   "dependencies" : {
-    "cordova" : "*"
-    "execSync" : "*"
+    "cordova" : "*",
+    "execSync" : "*",
+    "async" : "*"
   },
   "license": "MIT"
 }
