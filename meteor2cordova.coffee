@@ -12,6 +12,8 @@ exec = require('child_process').exec
 execSync = require('execSync').exec
 
 
+processors = require './processors'
+
 
 execPuts = (cmd, done) ->
   console.log 'Executing', cmd
@@ -22,14 +24,17 @@ execPuts = (cmd, done) ->
 
 
 argv = optimist.argv
+argDefault = (arg, def) ->
+  if argv.hasOwnProperty arg then argv[arg] else def
+
 
 url = process.argv[2]
 classname = argv.classname
-appname = if argv.appname? then argv.appname else classname
-versioncode = if argv.versioncode? then argv.versioncode else '1'
-versionname = if argv.versionname? then argv.versionname else '1.0'
+appname = argDefault 'appname', classname
+versioncode = argDefault 'versioncode', '1'
+versionname = argDefault 'versionname', '1.0'
 
-
+console.log 'versioncode', versioncode
 
 console.log argv
 
@@ -47,39 +52,18 @@ download = (url, dldir, done) ->
   execPuts "wget -nv --directory-prefix=#{dldir} -e robots=off -E -k -K -p #{url}", ->
     done()
 
+
 cordovaCreate = (done) ->
-    execPuts "cordova create cordovaapp", ->
-      process.chdir 'cordovaapp'
-      done()
+  execPuts "cordova create cordovaapp", ->
+    process.chdir 'cordovaapp'
+    done()
 
 copyApp = ->
   execSync "cp -a #{dldir}/#{url}/* www/"
 
 
 
-fixConfigXml = (done) ->
-  filename = 'www/config.xml'
-  fs.readFile filename, (err, data) ->
-    xml = data.toString()
-    xml = xml.replace 'hellocordova', classname
-    xml = xml.replace 'HelloCordova', appname
-    fs.writeFile filename, xml
-    done()
 
-fixAndroidManifestXml = (done) ->
-  filename = 'platforms/android/AndroidManifest.xml'
-  fs.readFile filename, (err, data) ->
-    xml = data.toString()
-    xml = xml.replace 'versionCode="1" android:versionName="1.0"', "versionCode=\"#{versioncode}\" android:versionName=\"#{versionname}\""
-    # also do something like: grep -v "CAMERA\|VIBRATE" AndroidManifest.xml
-    fs.writeFile filename, xml
-    done()
-
-
-mainHack = (done) ->
-  console.log "\nApplying the main hack: some JS that overrides _toSockjsUrl"
-  execPuts 'sed -i.bak \'s#</head>#<script type="text/javascript">Meteor._Stream._toSockjsUrl = function(e) { return "http://$URL/sockjs" }</script></head>#g\' www/index.html', ->
-    done()
 
 
 
@@ -88,10 +72,10 @@ main = ->
   download url, dldir, ->
     cordovaCreate ->
       copyApp()
-      mainHack ->
-        fixConfigXml ->
+      processors.mainHack ->
+        processors.fixConfigXml classname, appname, ->
           execPuts 'cordova platform add android', ->
-            fixAndroidManifestXml ->
+            processors.fixAndroidManifestXml versioncode, versionname, ->
               execPuts 'cordova build', ->
                 execPuts 'cordova compile android', ->
 

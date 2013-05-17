@@ -38,29 +38,19 @@ You possibly want to `chown -R `yourself` /usr/local/lib/node_modules/cordova`
 
 
 
-meteor2cordova.sh
------------------
-
-`meteor2cordova.sh` turns *any* Meteor app into a Phonegap app.
-
-
-Try running
-
-    meteor2cordova.sh docs.meteor.com
-
-or run without an argument to convert the Meteor app running on your
-local machine into an app.
 
 
 
 
 
-m2c.coffee
+
+meteor2cordova.coffee
 ----------
 
-`m2c.coffee` is a rewrite in coffeescript.
+`meteor2cordova.coffee` turns *any* Meteor app into a Phonegap app.
 
-   ./m2c.coffee docs.meteor.com --classname docs.meteor.com --appname "Meteorjs documentation" --versioncode 5 --versionname 0.6.3.1
+
+   ./meteor2cordova.coffee docs.meteor.com --classname docs.meteor.com --appname "Meteorjs documentation" --versioncode 5 --versionname 0.6.3.1
 
 
 More detail
