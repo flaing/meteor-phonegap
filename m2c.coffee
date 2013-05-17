@@ -14,6 +14,7 @@ execSync = require('execSync').exec
 
 
 execPuts = (cmd, done) ->
+  console.log 'Executing', cmd
   exec cmd, (error, stdout, stderr) ->
     sys.puts stderr
     sys.puts stdout
@@ -89,15 +90,10 @@ main = ->
       copyApp()
       mainHack ->
         fixConfigXml ->
-          console.log 'Building android platform'
           execPuts 'cordova platform add android', ->
             fixAndroidManifestXml ->
-              console.log 'cordova build'
               execPuts 'cordova build', ->
-                console.log 'compile android'
                 execPuts 'cordova compile android', ->
-
-
 
 main()
 
