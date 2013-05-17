@@ -1,8 +1,22 @@
 
 fs = require 'fs'
+_ = require 'underscore'
+sys = require 'sys'
+exec = require('child_process').exec
 
 
-processors.mainHack = (done) ->
+
+execPuts = (cmd, done) ->
+  console.log 'Executing', cmd
+  exec cmd, (error, stdout, stderr) ->
+    sys.puts stderr
+    sys.puts stdout
+    done()
+
+exports.execPuts = execPuts
+
+
+exports.mainHack = (done) ->
   console.log "\nApplying the main hack: some JS that overrides _toSockjsUrl"
   execPuts 'sed -i.bak \'s#</head>#<script type="text/javascript">Meteor._Stream._toSockjsUrl = function(e) { return "http://$URL/sockjs" }</script></head>#g\' www/index.html', ->
     done()
@@ -25,9 +39,13 @@ exports.fixAndroidManifestXml = (versioncode, versionname, done) ->
     xml = xml.replace 'versionCode="1"', "versionCode=\"#{versioncode}\""
     xml = xml.replace 'android:versionName="1.0"', "android:versionName=\"#{versionname}\""
 
+    console.log xml
+    _.map xml.split("\n"), (l) ->
+      console.log l
     # also do something like: grep -v "CAMERA\|VIBRATE" AndroidManifest.xml
     # xml = xml.
     fs.writeFile filename, xml
     done()
 
 
+# exports.fixAndroidManifestXml '1', '1', ->

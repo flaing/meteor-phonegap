@@ -5,22 +5,14 @@ dldir='/tmp/meteor-phonegap-downloads'
 
 
 fs = require 'fs'
-sys = require 'sys'
 # @TODO: cordova = require 'cordova'
 optimist = require 'optimist'
 exec = require('child_process').exec
 execSync = require('execSync').exec
 
-
 processors = require './processors'
+execPuts = processors.execPuts
 
-
-execPuts = (cmd, done) ->
-  console.log 'Executing', cmd
-  exec cmd, (error, stdout, stderr) ->
-    sys.puts stderr
-    sys.puts stdout
-    done()
 
 
 argv = optimist.argv
