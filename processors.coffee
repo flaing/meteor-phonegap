@@ -41,7 +41,12 @@ exports.fixAndroidManifestXml = (versioncode, versionname, rePermissions, done) 
 
     lines = _.map string.split("\n"), (l) ->
       if l.indexOf('uses-permission') > -1
-        l if rePermissions and l.match rePermissions
+        if rePermissions and l.match rePermissions
+          console.log 'Keeping permission: ', l
+          l
+        else
+          console.log 'Ditching permission: ', l
+          ''
       else
         l
     lines = _.filter lines, (l) -> l?.length > 0
