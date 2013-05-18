@@ -16,8 +16,11 @@ minor additions related phonegap settings, i.e. config.xml and
 AndroidManifest.xml for Android.  Great for prototyping and in-house
 apps.
 
-Any help with adding more platforms and improving Android is welcome: 
-* [Add more platforms](https://github.com/guaka/meteor-phonegap/issues/26)
+There's tons of stuff to do and improve. Your patches, bug reports and
+feature requests are very welcome on github. Help with [adding more
+platforms](https://github.com/guaka/meteor-phonegap/issues/26) is
+highly appreciated.
+
 
 
 Getting started
@@ -75,7 +78,5 @@ Some example Android apps
 * [Radio Meteor](https://play.google.com/store/apps/details?id=io.cordova.radio.meteor.com), internet radio player for Somafm and Radio Paradise
 * [Hitchwiki](https://play.google.com/store/apps/details?id=io.cordova.cordovahitchwikimeteorcom), offline version of Hitchwiki, based on [mediawikixml2meteor2phonegap](https://github.com/guaka/mediawikixml2meteor2phonegap)
 
-There's tons of stuff to do and improve. Your patches, bug reports and
-feature requests are very welcome on github.
 
 
