@@ -1,19 +1,22 @@
 meteor-phonegap
 ===============
 
-**[Meteor](http://meteor.com/)** is
-awesome. **[Phonegap](http://phonegap.com/)** is cool. Now let's make
-it easy for everyone to use both. At this point `meteor-phonegap` is a
-quick way to turn a Meteor project into an Android Phonegap app that
-you can upload to the Google Play Developer Console.
+**[Meteor](http://meteor.com/)** is a JS framework that makes it a
+**snap to build realtime apps.  [Phonegap](http://phonegap.com/)** is
+**a way to turn web apps into phone apps.
 
-You could take the cordova project and continue to develop that but that
-would be like forking your own project. We're trying to create a way to
-allow you to keep developing your Meteor project with only minor additions
-related phonegap settings, i.e. config.xml and AndroidManifest.xml for Android.
+**meteor-phonegap** is a quick and convenient way to turn a Meteor
+project into an Android Phonegap app that you can upload to the Google
+Play Developer Console.
+
+You could take the cordova project and continue to develop that but
+that would be like forking your own project. We're trying to create a
+way to allow you to keep developing your Meteor project with only
+minor additions related phonegap settings, i.e. config.xml and
+AndroidManifest.xml for Android.  Great for prototyping and in-house
+apps.
 
 Any help with adding more platforms and improving Android is welcome: 
-* [AndroidManifest.xml: CompontentInfo what how?](https://github.com/guaka/meteor-phonegap/issues/25)
 * [Add more platforms](https://github.com/guaka/meteor-phonegap/issues/26)
 
 
@@ -39,13 +42,8 @@ You possibly want to `chown -R `yourself` /usr/local/lib/node_modules/cordova`
 
 
 
-
-
-
-
-
 meteor2cordova.coffee
-----------
+---------------------
 
 `meteor2cordova.coffee` turns *any* Meteor app into a Phonegap app.
 
@@ -63,12 +61,11 @@ You first need to generate a key, e.g. like this:
     keytool -validity 9125 -sigalg MD5withRSA -keyalg RSA -keysize 1024 -genkey -v -alias YOURALIAS -keystore release-key.keystore
 
 
-The rest of the steps can be handled by `signapk.sh`, which takes YOURALIAS as an argument.
-
-
-After signin you're ready for uploading to
-http://play.google.com/apps/publish.  Unfortunately there does not
-seem to be a way to automate this last step (March 2013).
+The rest of the steps can be handled by `signapk.sh`, which looks for
+an appropriate `.apk` and turns it into `aligned-signed.apk`, which is
+ready to be be uploaded to http://play.google.com/apps/publish.
+Unfortunately there doesn't seem to be a way to automate this last
+step (May 2013).
 
 
 
