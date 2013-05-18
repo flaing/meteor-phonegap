@@ -53,23 +53,6 @@ meteor2cordova.coffee
    ./meteor2cordova.coffee docs.meteor.com --classname docs.meteor.com --appname "Meteorjs documentation" --versioncode 5 --versionname 0.6.3.1
 
 
-More detail
------------
-
-`setupexample.sh` will create a simple Meteor example project, fetch
-it with `wget`.  Then it will set up a Cordova project, copy the wget
-stuff into this and patch it based on the IP of the machine that this
-stuff is running on.
-
-`meteor2cordova.sh` will simply `wget` a Meteor project and apply some
-hackery on that.  Try `meteor2cordova.sh docs.meteor.com` for fun, and
-well, it might actually be useful.
-
-
-There's tons of stuff to do and improve. Your patches, bug reports and
-feature requests are very welcome on github.
-
-
 
 
 Keysigning
@@ -94,3 +77,8 @@ Some example Android apps
 * [Meteor documentation](https://play.google.com/store/apps/details?id=io.cordova.cordovadocsmeteorcom)
 * [Radio Meteor](https://play.google.com/store/apps/details?id=io.cordova.radio.meteor.com), internet radio player for Somafm and Radio Paradise
 * [Hitchwiki](https://play.google.com/store/apps/details?id=io.cordova.cordovahitchwikimeteorcom), offline version of Hitchwiki, based on [mediawikixml2meteor2phonegap](https://github.com/guaka/mediawikixml2meteor2phonegap)
+
+There's tons of stuff to do and improve. Your patches, bug reports and
+feature requests are very welcome on github.
+
+
