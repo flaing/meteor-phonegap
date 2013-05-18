@@ -25,6 +25,7 @@ classname = argv.classname
 appname = argDefault 'appname', classname
 versioncode = argDefault 'versioncode', '1'
 versionname = argDefault 'versionname', '1.0'
+rePermissions = argDefault 'permissions', '(INTERNET)'
 
 console.log 'versioncode', versioncode
 
@@ -67,7 +68,7 @@ main = ->
       processors.mainHack ->
         processors.fixConfigXml classname, appname, ->
           execPuts 'cordova platform add android', ->
-            processors.fixAndroidManifestXml versioncode, versionname, '(NOTHING)', ->
+            processors.fixAndroidManifestXml versioncode, versionname, rePermissions, ->
               execPuts 'cordova build', ->
                 execPuts 'cordova compile android', ->
 
