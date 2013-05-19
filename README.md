@@ -79,4 +79,7 @@ Some example Android apps
 * [Hitchwiki](https://play.google.com/store/apps/details?id=io.cordova.cordovahitchwikimeteorcom), offline version of Hitchwiki, based on [mediawikixml2meteor2phonegap](https://github.com/guaka/mediawikixml2meteor2phonegap)
 
 
+See also
+--------
+* [An overview of issues with Meteor Web Apps on Mobile](https://github.com/awwx/misc/wiki/Meteor-Web-Apps-on-Mobile)
 
