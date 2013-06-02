@@ -2,8 +2,8 @@ meteor-phonegap
 ===============
 
 **[Meteor](http://meteor.com/)** is a JS framework that makes it a
-**snap to build realtime apps.  [Phonegap](http://phonegap.com/)** is
-**a way to turn web apps into phone apps.
+snap to build realtime apps.  **[Phonegap](http://phonegap.com/)** is
+a way to turn web apps into phone apps.
 
 **meteor-phonegap** is a quick and convenient way to turn a Meteor
 project into an Android Phonegap app that you can upload to the Google
