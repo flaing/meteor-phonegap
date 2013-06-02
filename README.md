@@ -2,8 +2,8 @@ meteor-phonegap
 ===============
 
 **[Meteor](http://meteor.com/)** is a JS framework that makes it a
-**snap to build realtime apps.  [Phonegap](http://phonegap.com/)** is
-**a way to turn web apps into phone apps.
+snap to build realtime apps.  **[Phonegap](http://phonegap.com/)** is
+a way to turn web apps into phone apps.
 
 **meteor-phonegap** is a quick and convenient way to turn a Meteor
 project into an Android Phonegap app that you can upload to the Google
@@ -79,4 +79,7 @@ Some example Android apps
 * [Hitchwiki](https://play.google.com/store/apps/details?id=io.cordova.cordovahitchwikimeteorcom), offline version of Hitchwiki, based on [mediawikixml2meteor2phonegap](https://github.com/guaka/mediawikixml2meteor2phonegap)
 
 
+See also
+--------
+* [An overview of issues with Meteor Web Apps on Mobile](https://github.com/awwx/misc/wiki/Meteor-Web-Apps-on-Mobile)
 
