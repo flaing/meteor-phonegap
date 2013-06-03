@@ -1,7 +1,7 @@
 meteor-phonegap
 ===============
 
-**[Meteor](http://meteor.com/)** is a JS framework that makes it a
+**[Meteor](http://meteor.com/)** is a JavaScript framework that makes it a
 snap to build realtime apps.  **[Phonegap](http://phonegap.com/)** is
 a way to turn web apps into phone apps.
 
