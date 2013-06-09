@@ -76,6 +76,7 @@ Help / Consulting
 
 meteor-phonegap is written by [Kasper Souren](http://guaka.org/).
 Kasper is available for [Meteor and Phonegap consulting](http://guaka.org/contact).
+Also feel free to simply [create issues or requests](https://github.com/guaka/meteor-phonegap/issues/new) on github.
 
 
 Some example Android apps
