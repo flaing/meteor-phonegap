@@ -71,6 +71,12 @@ Unfortunately there doesn't seem to be a way to automate this last
 step (May 2013).
 
 
+Help / Consulting
+-----------------
+
+meteor-phonegap is written by [Kasper Souren](http://guaka.org/).
+Kasper is available for [Meteor and Phonegap consulting](http://guaka.org/contact).
+
 
 Some example Android apps
 -------------------------
