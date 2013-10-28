@@ -22,6 +22,8 @@ platforms](https://github.com/guaka/meteor-phonegap/issues/26) is
 highly appreciated.
 
 
+**Also check out the https://github.com/spacecapsule project which is more active as of late 2013**
+
 
 Getting started
 ---------------
