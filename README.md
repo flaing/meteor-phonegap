@@ -23,7 +23,7 @@ highly appreciated.
 
 I haven't yet used this in a professional context myself. If you are
 using it to make money or you want to incite me to work on this more:
-BTC donations welcome at 1512hVE9EzucwhV9jXjbqV71Z6yEVNugej
+BTC donations welcome at 1BPeqWrfaoUFC3SWXmU1N2jKset7kThA59
 
 
 **Also check out the https://github.com/spacecapsule project which is more active as of late 2013**
