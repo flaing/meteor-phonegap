@@ -32,11 +32,11 @@ BTC donations welcome at 1BPeqWrfaoUFC3SWXmU1N2jKset7kThA59
 Getting started
 ---------------
 
-**First step** is to install the Android SDK.
-Since I did this a long time ago and all is still good I'm not
-documenting this here now. jfgit.
+**First step** is to install the [Android SDK](https://developer.android.com/sdk/installing/index.html). Follow the instructions on the [Android SDK website](https://developer.android.com/sdk/installing/index.html).
 
-Make sure Android-SDK/tools is in your PATH. (And possibly more.)
+Add both the Android SDK `tools` and `build-tools/android-x.x` to your `PATH`. E.g.
+
+    export PATH="${HOME}/AndroidSDK/adt-bundle-mac-x86_64-20131030/sdk/build-tools/android-4.4:${HOME}/AndroidSDK/adt-bundle-mac-x86_64-20131030/sdk/tools:$PATH"
 
 I'm still not 100% sure about the relationship between Cordova and
 Phonegap but the `cordova` cli tool is extremely useful. We presume
@@ -46,7 +46,7 @@ Now, make sure `node` is up-to-date (at least v0.8.20 around February
 
     sudo npm install -g cordova
 
-You possibly want to `chown -R `yourself` /usr/local/lib/node_modules/cordova` 
+You possibly want to `chown -R `yourself` /usr/local/lib/node_modules/cordova`
 
 
 
