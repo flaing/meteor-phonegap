@@ -1,7 +1,12 @@
 
 
 # Read settings
-source ~/.meteor2cordova
+if [ -f ~/.meteor2cordova ] ; then
+    source ~/.meteor2cordova
+    echo "loaded"
+fi
+
+exit 0
 
 cd cordovaapp/platforms/android
 
