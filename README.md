@@ -92,6 +92,18 @@ Some example Android apps
 * [Hitchwiki](https://play.google.com/store/apps/details?id=io.cordova.cordovahitchwikimeteorcom), offline version of Hitchwiki, based on [mediawikixml2meteor2phonegap](https://github.com/guaka/mediawikixml2meteor2phonegap)
 
 
+Dependencies for Android
+--------
+Cordova build/compile can fail on Ubuntu giving error on appt file:
+    `Execute failed: java.io.IOException: Cannot run program "/home/myAccount/adt-bundle/sdk/build-tools/19.0.1/aapt"`
+
+You check the `aapt` and it's there. The problem is actually that you are not having the right binary version of the the file  (32/64)
+Installing those dependencies usually fix the problem:
+`sudo apt-get install libc6:i386 libgcc1:i386 gcc-4.6-base:i386 libstdc++5:i386 libstdc++6:i386`
+
+You might also need:
+`sudo apt-get install lib32stdc++6 lib32bz2-1.0 lib32z1 lib32ncurses5`
+
 See also
 --------
 * [An overview of issues with Meteor Web Apps on Mobile](https://github.com/awwx/misc/wiki/Meteor-Web-Apps-on-Mobile)
