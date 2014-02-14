@@ -22,7 +22,6 @@ exports.mainHack = (done) ->
 
 
 processFile = (filename, process, done) ->
-  
   filename = 'config.xml'
   fs.readFile filename, (err, data) ->
     fs.writeFile filename, (process data.toString()), ->
