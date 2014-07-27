@@ -108,3 +108,5 @@ See also
 --------
 * [An overview of issues with Meteor Web Apps on Mobile](https://github.com/awwx/misc/wiki/Meteor-Web-Apps-on-Mobile)
 * [About meteor-phonegap and Radio Meteor](http://guaka.org/2013/meteor-phonegap-and-radio-meteor)
+* [Question on Stackoverflow](http://stackoverflow.com/q/10322723/1245190)
+
