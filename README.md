@@ -1,3 +1,7 @@
+**As of Meteor 0.9.2 there is built-in [support for Cordova and Phonegap](https://www.meteor.com/blog/2014/09/15/meteor-092-iOS-Android-mobile-apps-phonegap-cordova).**
+
+
+
 meteor-phonegap
 ===============
 
